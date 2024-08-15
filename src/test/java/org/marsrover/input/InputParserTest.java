@@ -3,6 +3,9 @@ package org.marsrover.input;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class InputParserTest {
@@ -32,9 +35,18 @@ class InputParserTest {
         } catch (IllegalArgumentException e){
             assertEquals("This is not a valid position.", e.getMessage());
         }
-
     }
 
 
+    @Test
+    @DisplayName("Assert parseInstruction returns correct values when passed valid imput")
+    public void testParseInstructionValidInput(){
+        String input = "RMML";
+        List<Instruction> instructions = InputParser.parseInstruction(input);
+        assertEquals(Instruction.R, instructions.get(0));
+        assertEquals(Instruction.M, instructions.get(1));
+        assertEquals(Instruction.M, instructions.get(2));
+        assertEquals(Instruction.L, instructions.get(3));
+    }
 
 }
