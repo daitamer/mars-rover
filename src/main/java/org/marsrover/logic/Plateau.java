@@ -1,4 +1,4 @@
 package org.marsrover.logic;
 
-public class Plateau {
+public class Plateau implements Navigable{
 }
