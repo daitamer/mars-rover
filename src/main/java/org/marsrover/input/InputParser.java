@@ -9,7 +9,13 @@ public class InputParser {
         String[] userInput = input.split(" ");
         int x = Integer.parseInt(userInput[0]);
         int y = Integer.parseInt(userInput[1]);
-        CompassDirection direction = CompassDirection.valueOf(userInput[2]);
+        CompassDirection direction;
+        try {
+            direction = CompassDirection.valueOf(userInput[2]);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("This is not a valid position.");
+        }
+
         return new Position(x, y, direction);
     }
 
