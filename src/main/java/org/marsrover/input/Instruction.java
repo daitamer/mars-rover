@@ -1,4 +1,4 @@
-package org.example.input;
+package org.marsrover.input;
 
 public enum Instruction {
 
