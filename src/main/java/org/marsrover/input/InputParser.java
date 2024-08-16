@@ -21,10 +21,21 @@ public class InputParser {
 
     public static List<Instruction> parseInstruction(String input){
         List<Instruction> instructions = new ArrayList<>();
-        for (char c : input.toCharArray()){
-            instructions.add(Instruction.valueOf(String.valueOf(c)));
+        for (char c : input.toUpperCase().toCharArray()){
+            if (c == 'R' || c == 'L' || c == 'M') {
+                instructions.add(Instruction.valueOf(String.valueOf(c)));
+            } else {
+                throw new IllegalArgumentException("This is not a valid input");
+            }
+
         }
-                return instructions;
+
+        if (instructions.isEmpty()){
+            throw new IllegalArgumentException("Instructions cannot be empty");
+        }
+
+        return instructions;
+
     }
 
     public static CompassDirection parseDirection(String input){
@@ -41,7 +52,17 @@ public class InputParser {
         String[] userInput = input.split(" ");
         int width = Integer.parseInt(userInput[0]);
         int length = Integer.parseInt(userInput[1]);
-        return new PlateauSize(width, length);
+
+        if (width <= 0 || length <= 0){
+            throw new IllegalArgumentException("Width and length must be higher than zero");
+        }
+
+        try{
+            return new PlateauSize(width, length);
+        } catch (IllegalArgumentException e){
+            throw new IllegalArgumentException("This is not a valid size");
+        }
+
     }
 
 }
