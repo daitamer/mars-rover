@@ -27,7 +27,6 @@ public class InputParser {
             } else {
                 throw new IllegalArgumentException("This is not a valid input");
             }
-
         }
 
         if (instructions.isEmpty()){
