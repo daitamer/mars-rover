@@ -70,7 +70,7 @@ class InputParserTest {
     }
 
     @Test
-    @DisplayName("Assert parsePlateauSizeValidInput returns correct values when passed valid input")
+    @DisplayName("Assert parsePlateauSize returns correct values when passed valid input")
     public void testParsePlateauSizeValidInput(){
         String input = "5 5";
         PlateauSize plateauSize = InputParser.parsePlateauSize(input);
@@ -84,7 +84,7 @@ class InputParserTest {
     }
 
     @Test
-    @DisplayName("Assert parsePlateauSizeInvalidInput throws an error when passed invalid input")
+    @DisplayName("Assert parsePlateauSize throws an error when passed invalid input")
     public void testParsePlateauSizeInvalidInput(){
         String input ="-5 10";
         try {
@@ -101,7 +101,34 @@ class InputParserTest {
         }
     }
 
-// add tests for direction
+    @Test
+    @DisplayName("Assert parseDirection returns correct values when passed a valid input")
+    public void testParseDirectionValidInput(){
+        String input = "N";
+        CompassDirection direction = InputParser.parseDirection(input);
+        assertEquals(CompassDirection.N, direction);
 
+        String input2 = "W";
+        CompassDirection direction2 = InputParser.parseDirection(input2);
+        assertEquals(CompassDirection.W, direction2);
+    }
+
+    @Test
+    @DisplayName("Assert parseDirection throws an error when passed an invalid input")
+    public void testParseDirectionInvalidInput(){
+        String input = "K";
+        try {
+            InputParser.parseDirection(input);
+        } catch (IllegalArgumentException e){
+            assertEquals("This is not a valid direction.", e.getMessage());
+        }
+
+        String input2 = "1";
+        try {
+            InputParser.parseDirection(input2);
+        } catch (IllegalArgumentException e){
+            assertEquals("This is not a valid direction.", e.getMessage());
+        }
+    }
 
 }
