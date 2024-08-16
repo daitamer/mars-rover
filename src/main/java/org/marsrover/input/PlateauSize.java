@@ -6,6 +6,9 @@ public class PlateauSize {
     private int length;
 
     public PlateauSize(int width, int length){
+        if (width <=0 || length <=0){
+            throw new IllegalArgumentException("Width and length cannot be equal or less than zero");
+        }
         this.width = width;
         this.length = length;
     }
@@ -25,5 +28,11 @@ public class PlateauSize {
     public void setLength(int length) {
         this.length = length;
     }
+
+    @Override
+    public String toString(){
+        return "Plateau width is: " + width + ", and Plateau length is: " + length;
+    }
+
 }
 

@@ -1,7 +1,9 @@
 package org.marsrover.logic;
 
+import org.marsrover.input.Position;
+
 public interface Navigable {
 
-//    navigation/boundaries?
+    boolean isNavigable();
 
 }

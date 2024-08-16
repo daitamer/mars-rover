@@ -1,11 +1,11 @@
 package org.marsrover;
 
 import org.marsrover.input.*;
+import org.marsrover.logic.Plateau;
+import org.marsrover.logic.Rover;
 
 import java.util.List;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
@@ -24,6 +24,24 @@ public class Main {
     String directionInput = "N";
     CompassDirection direction = InputParser.parseDirection(directionInput);
     System.out.println("Direction is now: " + direction);
+
+    PlateauSize size = new PlateauSize(5, 5);
+    Plateau plateau = new Plateau(size);
+
+    System.out.println(plateau);
+
+    Position position = new Position(1, 2, CompassDirection.N);
+        System.out.println(position);
+    Rover rover = new Rover(position, CompassDirection.N);
+        System.out.println(rover);
+    rover.moveForward();
+
+        System.out.println("Before rotating right: " + rover.getPosition());
+        System.out.println(rover.getFacing());
+    rover.rotateRight();
+        System.out.println(rover);
+        System.out.println("After rotating right: " + rover.getPosition());
+        System.out.println(rover.getFacing());
 
     }
 }

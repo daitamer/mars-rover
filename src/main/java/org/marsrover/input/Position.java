@@ -36,9 +36,10 @@ public class Position {
         this.y = y;
     }
 
+
     @Override
     public String toString(){
-        return "Position x is " + x + ". Position y is " + y + ". Rover is facing " + facing + ".";
+        return "Position x is " + x + ". Position y is " + y + ". Rover is facing " + getFacing() + ".";
     }
 
 }

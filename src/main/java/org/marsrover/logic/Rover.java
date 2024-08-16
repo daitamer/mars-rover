@@ -25,11 +25,13 @@ public class Rover extends Vehicle implements Controllable{
 //    check for obstacles;
 
   public void rotateRight(){
-      facing = facing.turnRight();
+     facing = facing.turnRight();
+     getPosition().setFacing(facing);
   }
 
   public void rotateLeft(){
       facing = facing.turnLeft();
+      getPosition().setFacing(facing);
   }
 
   public void moveForward(){
@@ -51,6 +53,11 @@ public class Rover extends Vehicle implements Controllable{
         }
         Position newPosition = new Position(nextX, nextY, facing);
         setPosition(newPosition);
+  }
+
+  @Override
+    public String toString(){
+      return "The rover is facing " + facing;
   }
 
 }

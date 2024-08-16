@@ -49,4 +49,27 @@ class RoverTest {
 
     }
 
+//implement test for move forward in each direction;
+
+//    public void moveForward(){
+//        int nextX = getPosition().getX();
+//        int nextY = getPosition().getY();
+//        switch(facing){
+//            case N:
+//                nextY++;
+//                break;
+//            case E:
+//                nextX++;
+//                break;
+//            case S:
+//                nextY--;
+//                break;
+//            case W:
+//                nextX--;
+//                break;
+//        }
+//        Position newPosition = new Position(nextX, nextY, facing);
+//        setPosition(newPosition);
+//    }
+
 }
