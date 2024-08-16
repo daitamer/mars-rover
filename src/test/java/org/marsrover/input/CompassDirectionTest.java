@@ -25,20 +25,5 @@ class CompassDirectionTest {
 
 
 
-//    public CompassDirection turnRight(){
-//        switch(this){
-//            case N:
-//                return E;
-//            case E:
-//                return S;
-//            case S:
-//                return W;
-//            case W:
-//                return N;
-//            default:
-//                throw new IllegalArgumentException("Unexpected input");
-//        }
-//    }
-
 
 }

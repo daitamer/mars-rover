@@ -20,6 +20,20 @@ class RoverTest {
     }
 
     @Test
+    @DisplayName("Assert rotateLeft method returns a correct value when passed a valid input")
+    public void testRotateLeftValidInput(){
+
+        assertEquals(CompassDirection.N, rover.getFacing());
+        rover.rotateLeft();
+        assertEquals(CompassDirection.W, rover.getFacing());
+        rover.rotateLeft();
+        assertEquals(CompassDirection.S, rover.getFacing());
+        rover.rotateLeft();
+        assertEquals(CompassDirection.E, rover.getFacing());
+
+    }
+
+    @Test
     @DisplayName("Assert rotateRight method returns a correct value when passed a valid input")
     public void testRotateRightValidInput(){
 
@@ -34,7 +48,5 @@ class RoverTest {
         assertEquals(CompassDirection.N, rover.getFacing());
 
     }
-
-
 
 }
